@@ -40,9 +40,8 @@ class FilmType(models.TextChoices):
 
 class Filmwork(UUIDMixin, TimeStampedMixin):
     title = models.CharField(_('title'), max_length=255)
-    creation_date = models.DateField(_('creation date'), blank=True)
     description = models.TextField(_('description'), blank=True)
-    certificate = models.CharField(_('certificate'), max_length=512, blank=True)
+    creation_date = models.DateField(_('creation date'), blank=True)
     file_path = models.FileField(_('file'), blank=True, null=True, upload_to='movies/')
     rating = models.FloatField(_('rating'), blank=True,
                                validators=[MinValueValidator(0),
