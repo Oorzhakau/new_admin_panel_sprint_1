@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-18 21:34+0000\n"
+"POT-Creation-Date: 2022-09-19 21:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: movies/admin.py:21
+#: movies/admin.py:22
 msgid "Rating"
 msgstr ""
 
@@ -26,78 +26,86 @@ msgstr ""
 msgid "movies"
 msgstr ""
 
-#: movies/models.py:23
+#: movies/models.py:24
 msgid "name"
 msgstr ""
 
-#: movies/models.py:24 movies/models.py:42
+#: movies/models.py:25 movies/models.py:43
 msgid "description"
 msgstr ""
 
-#: movies/models.py:28
+#: movies/models.py:29
 msgid "Genre"
 msgstr ""
 
-#: movies/models.py:29
+#: movies/models.py:30
 msgid "Genres"
 msgstr ""
 
-#: movies/models.py:36
+#: movies/models.py:37
 msgid "Film"
 msgstr ""
 
-#: movies/models.py:37
+#: movies/models.py:38
 msgid "TV-show"
 msgstr ""
 
-#: movies/models.py:41
+#: movies/models.py:42
 msgid "title"
 msgstr ""
 
-#: movies/models.py:43
+#: movies/models.py:44
 msgid "creation date"
 msgstr ""
 
-#: movies/models.py:44
+#: movies/models.py:45
+msgid "file"
+msgstr ""
+
+#: movies/models.py:46
 msgid "rating"
 msgstr ""
 
-#: movies/models.py:47
+#: movies/models.py:49
 msgid "type"
 msgstr ""
 
-#: movies/models.py:53
+#: movies/models.py:55
 msgid "Filmwork"
 msgstr ""
 
-#: movies/models.py:54
+#: movies/models.py:56
 msgid "Filmworks"
 msgstr ""
 
-#: movies/models.py:67
+#: movies/models.py:69
 msgid "Genre filmwork"
 msgstr ""
 
-#: movies/models.py:68
+#: movies/models.py:70
 msgid "Genres filmworks"
 msgstr ""
 
-#: movies/models.py:71
+#: movies/models.py:74
 msgid "full name"
 msgstr ""
 
-#: movies/models.py:75
+#: movies/models.py:78
 msgid "Person filmwork"
 msgstr ""
 
-#: movies/models.py:76
+#: movies/models.py:79
 msgid "Persons filmworks"
 msgstr ""
 
-#: movies/models.py:91
+#: movies/models.py:88
+msgid "role"
+msgstr ""
+
+#: movies/models.py:94
 msgid "Person - Filmwork"
 msgstr ""
 
-#: movies/models.py:92
+#: movies/models.py:95
 msgid "Persons - Filmworks"
 msgstr ""
