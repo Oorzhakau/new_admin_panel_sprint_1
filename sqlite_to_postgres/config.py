@@ -1,0 +1,1 @@
+CONFIG = {"BATCH_SIZE": 100}
