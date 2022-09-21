@@ -1,5 +1,6 @@
 import os
 import sqlite3
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -7,8 +8,13 @@ import psycopg2
 import pytest
 from dotenv import load_dotenv
 from psycopg2.extras import DictCursor
-from sqlite_to_postgres.postgres_saver import postgres_cursor_context
-from sqlite_to_postgres.sqlite_extractor import sqlite_cursor_context
+
+path = os.path.dirname(os.path.dirname(os.path.dirname(__file__)))
+path = os.path.join(path, 'sqlite_to_postgres')
+sys.path.append(path)
+
+from postgres_saver import postgres_cursor_context
+from sqlite_extractor import sqlite_cursor_context
 
 load_dotenv()
 

@@ -1,6 +1,5 @@
 import sqlite3
 from contextlib import contextmanager
-from dataclasses import astuple
 from typing import Generator
 
 from config import CONFIG
@@ -71,4 +70,3 @@ class SQLiteExtractor:
                     self._dataclass[table]["dataclass"](**row) for row in batch
                 ]
                 yield data
-
