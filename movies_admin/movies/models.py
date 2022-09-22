@@ -33,12 +33,11 @@ class Genre(UUIDMixin, TimeStampedMixin):
         return self.name
 
 
-class FilmType(models.TextChoices):
-    MOVIE = "movie", _("Film")
-    TV_SHOW = "tv_show", _("TV-show")
-
-
 class Filmwork(UUIDMixin, TimeStampedMixin):
+    class FilmType(models.TextChoices):
+        MOVIE = "movie", _("Film")
+        TV_SHOW = "tv_show", _("TV-show")
+
     title = models.CharField(_("title"), max_length=255)
     description = models.TextField(_("description"), blank=True)
     creation_date = models.DateField(_("creation date"), blank=True)
@@ -88,9 +87,19 @@ class Person(UUIDMixin, TimeStampedMixin):
 
 
 class PersonFilmwork(UUIDMixin):
+    class Role(models.TextChoices):
+        ACTOR = "actor", _("actor")
+        DIRECTOR = "director", _("director")
+        WRITER = "writer", _("writer")
+
     film_work = models.ForeignKey(Filmwork, on_delete=models.CASCADE)
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
-    role = models.TextField(_("role"), null=True)
+    role = models.CharField(
+        _("role"),
+        max_length=10,
+        choices=Role.choices,
+        default=Role.ACTOR
+    )
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:

@@ -62,10 +62,7 @@ class SQLiteExtractor:
         with sqlite_cursor_context(self.conn) as cur:
             query = f"SELECT * FROM {table}"
             cur.execute(query)
-            while True:
-                batch = cur.fetchmany(batch_size)
-                if not batch:
-                    break
+            while batch := cur.fetchmany(batch_size):
                 data = [
                     self._dataclass[table]["dataclass"](**row) for row in batch
                 ]
