@@ -6,16 +6,18 @@ from .models import Filmwork, Genre, GenreFilmwork, Person, PersonFilmwork
 
 @admin.register(Genre)
 class GenreAdmin(admin.ModelAdmin):
-    pass
+    search_fields = ('name',)
 
 
 class GenreFilmworkInline(admin.TabularInline):
     model = GenreFilmwork
+    autocomplete_fields = ('genre',)
     extra = 1
 
 
 class PersonFilmworkInline(admin.TabularInline):
     model = PersonFilmwork
+    autocomplete_fields = ('person', 'film_work',)
 
 
 class RatingFilter(admin.SimpleListFilter):
@@ -51,6 +53,7 @@ class FilmWorkAdmin(admin.ModelAdmin):
     list_display = (
         "title",
         "type",
+        'get_genres',
         "creation_date",
         "rating",
     )
@@ -64,6 +67,20 @@ class FilmWorkAdmin(admin.ModelAdmin):
         "rating",
         "title",
     )
+    list_prefetch_related = ('genres', )
+
+    def get_queryset(self, request):
+        queryset = (
+            super()
+            .get_queryset(request)
+            .prefetch_related(*self.list_prefetch_related)
+        )
+        return queryset
+
+    def get_genres(self, obj):
+        return ', '.join([genre.name for genre in obj.genres.all()])
+
+    get_genres.short_description = _('Genre')
 
 
 @admin.register(Person)
